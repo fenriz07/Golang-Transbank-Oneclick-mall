@@ -59,7 +59,7 @@ func (client HttpClient) Put(endpoint string) (*resty.Response, error) {
 	return resp, err
 }
 
-/*Get http het method for client*/
+/*Get http get method for client*/
 func (client HttpClient) Get(endpoint string) (*resty.Response, error) {
 
 	clientResty := client.init()
@@ -82,4 +82,28 @@ func (client HttpClient) Get(endpoint string) (*resty.Response, error) {
 
 	return resp, err
 
+}
+
+/*Delete http delete method for client*/
+func (client HttpClient) Delete(endpoint string, body map[string]interface{}) (*resty.Response, error) {
+	clientResty := client.init()
+
+	url := client.generateURL(endpoint)
+
+	resp, err := clientResty.R().
+		SetBody(body).
+		Delete(url)
+
+	if err != nil {
+		log.Printf("Resty fail in delete method client :  %v\n", err)
+		return resp, err
+	}
+
+	err = validateResponse(resp)
+
+	if err != nil {
+		return resp, err
+	}
+
+	return resp, err
 }

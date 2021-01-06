@@ -35,4 +35,5 @@ type Client interface {
 	Get(endpoint string) (*resty.Response, error)
 	Post(endpoint string, body map[string]interface{}) (*resty.Response, error)
 	Put(endpoint string) (*resty.Response, error)
+	Delete(endpoint string, body map[string]interface{}) (*resty.Response, error)
 }

@@ -118,3 +118,36 @@ func (client ClientWebPaySuccess) Get(endpoint string) (*resty.Response, error) 
 	return resp, nil
 
 }
+
+/*Delete http delete for client*/
+func (client ClientWebPaySuccess) Delete(endpoint string, body map[string]interface{}) (*resty.Response, error) {
+
+	var fixture string = ""
+
+	if endpoint == "rswebpaytransaction/api/webpay/v1.0/transactions" {
+		fixture = `{"token":"7452125458955","url":"http://github.com"}`
+	} else if endpoint == "rswebpaytransaction/api/webpay/v1.0/transactions/tokenrefundtest/refunds" {
+		fixture = `{
+			"type":"NULLIFY",
+			"authorization_code":"123456",
+			"authorization_date":"2019-03-20T20:18:20Z",
+			"nullified_amount":1000.00,
+			"balance":0.00,
+			"response_code":0
+		 }`
+	}
+
+	responder := httpmock.NewStringResponder(200, fixture)
+	// Get the underlying HTTP Client and set it to Mock
+	httpmock.ActivateNonDefault(clientResty.GetClient())
+
+	httpmock.RegisterResponder("POST", fakeURL, responder)
+
+	resp, err := clientResty.R().Post(fakeURL)
+
+	if err != nil {
+		return resp, err
+	}
+
+	return resp, nil
+}
