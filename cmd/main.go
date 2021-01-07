@@ -3,20 +3,38 @@ package main
 import (
 	"fmt"
 
-	"github.com/fenriz07/Golang-Transbank-Oneclick-mall/pkg/inscription"
 	"github.com/fenriz07/Golang-Transbank-Oneclick-mall/pkg/oneclickmall"
+	"github.com/fenriz07/Golang-Transbank-Oneclick-mall/pkg/transaction"
 )
 
 func main() {
 
 	oneclickmall.SetEnvironmentIntegration()
 
-	response, err := inscription.DeleteInscription("b1c2abdb-8df8-439b-be7a-53280627e070", "1212")
+	detail := transaction.CreateDetailTransaction("597055555542", "7oneclickgolang", 4000, 1)
+
+	response, err := transaction.AuthorizeTransaction("1212", "6130952c-52db-4aed-b791-530a0fd1f94d", "7oneclickgolang", detail)
 
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	fmt.Println(response)
+
+	statusTransaction, err := transaction.StatusTransaction("7oneclickgolang")
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(statusTransaction)
+
+	refundTransaction, err := transaction.RefundTransaction("7oneclickgolang", "597055555542", "7oneclickgolang", 2000)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(refundTransaction)
 
 }
