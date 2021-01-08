@@ -1,38 +1,42 @@
-![Golang-WebPay](https://user-images.githubusercontent.com/9199380/102151890-a451d980-3e52-11eb-9626-3a679cce4850.png)
+![WebPay-One-Click-Mall](https://user-images.githubusercontent.com/9199380/104020581-33c18280-519c-11eb-9a4d-2a3a19b25fdd.png)
 
 <p align="center">
-<h1 align="center">Golang - Webpay Plus Transbank Rest</h1>
-<p align="center">Biblioteca para la integración de Webpay Plus (REST) </p>
+<h1 align="center">Golang - Webpay OneClick Mall</h1>
+<p align="center">Biblioteca para la integración de Webpay OneClick Mall en golang </p>
 
 </p>
 
 <p align="center">
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/fenriz07/Golang-Transbank-WebPay-Rest)](https://goreportcard.com/report/github.com/fenriz07/Golang-Transbank-WebPay-Rest)
-![Test](https://github.com/fenriz07/Golang-Transbank-WebPay-Rest/workflows/Test/badge.svg)
-<a href="https://pkg.go.dev/github.com/fenriz07/Golang-Transbank-WebPay-Rest"><img src="https://godoc.org/github.com/fenriz07/Golang-Transbank-WebPay-Rest?status.svg" alt="GoDoc"></a>
+[![Go Report Card](https://goreportcard.com/badge/github.com/fenriz07/Golang-Transbank-Oneclick-mall)](https://goreportcard.com/report/github.com/fenriz07/Golang-Transbank-Oneclick-mall)
+
 
 </p>
 
 ## Características
 
+
 - Soporte para ambiente de integración y producción
-- Crear transacción.
-- Confirmar una transacción.
-- Obtener el estado de una transacción.
-- Reversar o Anular un pago.
+- Crear una inscripción
+- Confirmar una inscripción
+- Eliminar una inscripción
+- Autorizar un pago
+- Obtener estado de una transacción
+- Reversar o anular una transacción
 - Consolidación de respuestas en structs.
 - Manejo de errores http.
 
-## Ejemplo de uso (Gorilla):
+## Ejemplos de uso:
 
+- 
 Ejemplo de proyecto donde esta implementado
-https://github.com/fenriz07/EjemploTransbankGoRest
+
+- https://github.com/fenriz07/oneclick-golang-example todas las caracteristicas implementadas bajo Iris Framework y Docker
 
 ## Instalación
 
 ```bash
-go get github.com/fenriz07/Golang-Transbank-WebPay-Rest
+go get github.com/fenriz07/Golang-Transbank-Oneclick-mall
 ```
 
 ## Uso
