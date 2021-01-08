@@ -80,8 +80,39 @@ APIKeySecret := "Llave secreta"
 oneclickmall.SetEnvironmentProduction(APIKeyID,APIKeySecret)
 ```
 
+### Crear una inscripción
+```go
+	response, err := inscription.CreateInscription(username, email, "http://localhost:8080/inscription/confirm")
+```
+
+### Confirmar una inscripción
+```go
+	response, err := inscription.ConfirmInscription(token)
+```
+
+### Borrar una inscripción
+```go
+	status, err := inscription.DeleteInscription(userToken, username)
+```
+
+### Autorizar un pago
+```go
+	//Primero creamos el detalle de la transacción
+	detail := transaction.CreateDetailTransaction("597055555542", order, amount, 1)
+
+	//Llamamos a transaction.AuthorizeTransaction y pasamos: Usuario, token de usuario, numero de orden y detalle (detail)
+	response, err := transaction.AuthorizeTransaction(username, userToken, order, detail)
+```
+
+### Estado de un pago 
+```go
+	response, err := transaction.StatusTransaction(order)
+```
 
 
+### Reversar o anular un pago
+```go
+	response, err := transaction.RefundTransaction(order, "597055555542", order, amount)
 ```
 
 ## Creador
