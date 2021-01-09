@@ -116,6 +116,9 @@ response, err := transaction.StatusTransaction(order)
 response, err := transaction.RefundTransaction(order, "597055555542", order, amount)
 ```
 
+## Otras bibliotecas para los servicios de transbank:
+- [WebPay Plus](https://github.com/fenriz07/Golang-Transbank-WebPay-Rest)
+
 ## Creador
 
 [Fenriz07](https://github.com/fenriz07)
